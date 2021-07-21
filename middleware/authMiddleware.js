@@ -3,14 +3,16 @@ const {user} = require('../models/userModel')
 const mongoose = require('mongoose');
 
 const requireAuth = async (req,res,next)=>{
+    console.log('checking auth');
     const token = req.cookies.jwt;
-    console.log(token)
+    const {authorization} = req.headers
+    console.log(authorization,'is token',JSON.stringify(req.headers))
     if(token)
     {
         jwt.verify(token,'ayush secret key',async (err,decodedToken)=>{
             if(err)
             {
-                res.redirect('/login')
+                res.json({loginError:'You need to login'})
             }
             else{
                let decodeduser = await user.findById(decodedToken.id);
@@ -30,9 +32,9 @@ const requireAuth = async (req,res,next)=>{
             next();
         }
         else{
-            res.redirect('/login')
+            res.json({loginError:'You need to login'})
         }
-        res.redirect('/login')
+        // res.redirect('/login')
     }
 
 }

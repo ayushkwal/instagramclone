@@ -7,12 +7,15 @@
     align-items: center;
     height: 80px;
 }
+.nav-wrapper h1{
+  width:300px;
+  text-align: center;
+}
 
 .nav-wrapper ul{
     display: flex;
     justify-content: space-around;
     width:290px;
-    margin-top:32px;
     text-decoration: none;
     list-style: none;
 }
@@ -151,6 +154,7 @@ body
   border: none;
   border-radius: .4rem;
   cursor: pointer;
+  padding: 2px;
 }
 
 /*OR font styling*/
@@ -380,9 +384,6 @@ h1{
     display: flex;
     justify-content: space-around;
     margin-top:2vh;
-    width:80%;
-    padding-left:10%;
-    padding-right: 10%;;
 }
 .dp{
     
@@ -395,14 +396,27 @@ h1{
     border:1px solid black;
 }
 .detail{
-    border: 1px solid red;
-    width:60%;
+  align-self: center;
+
+}
+.detail h2{
+  font-size: 29px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: 400;
+  color: rgb(49, 49, 49);
+  
 
 }
 .followdetails{
     display: flex;
-    font-size: 22px;
+    font-size: 18px;
     margin-top:20px;
+    justify-content: center;
+}
+.followdetails h4{
+  font-weight: 200;
+  padding:5px 5px
 }
 .postandsave{
     display: flex;
@@ -410,6 +424,15 @@ h1{
     justify-content: center;
     width:100%;
     flex-basis: 20px;
+    margin-top:20px
+}
+.postcaptions h1 a{
+  text-transform: capitalize;
+  color:#1DA1F2;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 19px;
+  padding:4px 4px;
+  box-shadow: 1px 1px 6px #fff;
 }
 .savedata{
     display: flex;
@@ -417,12 +440,20 @@ h1{
     padding-right:8%;
     padding-left:8%;
     margin-top:25px;
+    justify-content: center;
+   
 }
-.savedata img{
+#mypost{
+    justify-content: center;
+    padding:12px 12px;
     width:20%;
     height: 20%;
-    margin-right:30px;
     margin-top:20px;
+    min-width:350px;
+    padding:10px 10px;
+    box-shadow: 10px 10px 10px gray;
+    margin: 9px 20px;
+    border:2px solid #f2f2f2
 }
 /* Css for home page  */
 .home{
@@ -432,6 +463,8 @@ h1{
     align-items: center;
     justify-content: space-around;
     margin: auto;
+    width:50vw;
+    min-width: 370px;
 }
 p{
     font-size: 24px;
@@ -439,22 +472,23 @@ p{
 }
 .posts{
     margin-top: 100px;
-    border: 1px solid red;
    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    max-width:600px;
+    max-width:700px;
+    min-width: 375px;
 
 }
 .post{
-    margin: 20px auto;
+    margin: 1px auto;
     width:100%;
-    border: 1px solid purple;
+    border: 1px solid #f2f2f2;
     max-width:600px;
+    padding:0px 20px;
+    box-shadow: 3px 3px 10px gray;
 }
 .postimage img{
     margin-top:22px;
-    margin-bottom:22px;
     max-height: 60vh;
 };
 .comment h2{
@@ -464,6 +498,7 @@ p{
 .addcomment{
 display: flex;
 flex-direction: row;
+margin-bottom: 15px;
 }
 
 .addcomment input{
@@ -489,12 +524,12 @@ flex-direction: row;
   float: right;
 }
 
-input[type=text] {
+input[type=text],input[type=number],input[type=email],input[type=date],input[type=password] {
   background: transparent;
   border: none;
   border-bottom: 1px solid #000000;
 }
-input[type=text]:focus {
+input[type=text]:focus,input[type=number]:focus,input[type=email]:focus,input[type=date]:focus,input[type=password]:focus {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgb(41, 188, 246);
@@ -510,4 +545,129 @@ input[type=text]:focus {
   font-size: 18px;
   border: none;
   margin-right:3px;
+ }
+
+ @media only screen and (max-width: 700px)
+ {
+  .nav-wrapper{
+    flex-direction: column;
+    height: 134px;
+
+  }
+  .nav-wrapper ul{
+    margin-top: 0px;
+    width:370px;
+  }
+  .followdetails{
+    flex-direction: column;
+    text-align: center;
+  }
+  .dp img {
+    width: 54vw;
+    height: 54vw;
+    margin-bottom: 39px;
+  }
+  .pro1{
+    padding:60px 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about{
+    text-align: center;
+  }
+ }
+ #likersul{
+  font-size: large;
+    padding: 10px 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    color: gray;
+
+ }
+ #likersli{
+  margin: 10px;
+  padding:10px;
+  width:240px;
+  box-shadow: 12px 2px 20px #f2f2f2;
+  border: 1px #f2f2f2;
+  border-radius: 10px;
+  color:gray
+ }
+ #likersli a{
+   color:gray;
+   text-decoration: none;
+   font-size: 20px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+ #closemodal{
+   background-color: white;
+   background-color: white;
+   border: none;
+   width: 50px;
+   cursor: pointer;
+ }
+ #mymodal h1{
+   display: inline;
+   position: absolute;
+ }
+ #mymodal{
+   max-width: 500px;
+   padding:3px !important;
+   height:fit-content !important
+ }
+ #searchli{
+   border:1px solid #fff;
+   background-color: #f2f2f2;
+   font-family: cursive;
+ }
+ #searchli a{
+  color:rgb(77, 75, 75)
+}
+
+ #searchul{
+   
+ }
+ #followbtn{
+   padding:9px 25px;
+   background-color: #1DA1F2;
+   color:white;
+   letter-spacing: 0.3rem;
+   border-radius: 6px;
+   outline:none;
+   margin-top:10px;
+   box-shadow: 2px 2px 5px #f2f2f2;
+   border:1px solid #fff;
+   border:none;
+   cursor: pointer;
+
+ }
+ .followdiv{
+   display: flex;
+   justify-content: center;
+ }
+ #mymodal{
+   margin:auto
+ }
+ #editprofile form{
+   display: flex;
+   background-color:#f2f2f2;
+   flex-direction: column;
+   align-self: center;
+   align-items: center;
+   min-width: 380px;
+   width:40%;
+   justify-content: center;
+   margin:auto;
+   padding:20px 20px;
+ }
+ #editprofile p{
+   color:gray;
+   font-size:9px
+ }
+ #editprofile h4{
+   font-size: 18px;
+   color:gray;
+   margin-top: 30px;
  }

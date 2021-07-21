@@ -7,7 +7,7 @@ import Login from './Components/Login'
 import Profile from './Components/Profile'
 import Signup from './Components/Signup'
 import CreatePost from './Components/CreatePost'
-
+import EditProfile from './Components/EditProfile'
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
    <Route path="/signup"><Signup /></Route>
    <Route path="/profile"><Profile /></Route>
    <Route path="/createpost"><CreatePost /></Route>
+   <Route path="/editprofile"><EditProfile /></Route>
    </BrowserRouter>
    </div>
   );

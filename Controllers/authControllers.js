@@ -1,6 +1,6 @@
 const express = require('express');
 const {user} = require('../models/userModel');
-// const User = require('../models/userModel')
+const {message} = require('../models/messageModel')
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
@@ -29,7 +29,7 @@ const handleErrors = (err)=>{
 
 //CreatIng a Token
 const createToken =(id)=>{
-    return jwt.sign({id},secret.secret.secretKey,{expiresIn:3*24*60*60})
+    return jwt.sign({id},'secret.secret.secretKey',{expiresIn:3*24*60*60})
 }
 
 
@@ -55,9 +55,11 @@ module.exports.login_post = async(req,res)=>{
             console.log(checkUser)
             if(checkUser.password===password)
             {
-                const token = createToken(checkUser._id);
-                res.cookie('jwt',token,{maxAge:3*24*60*60*1000,httpOnly:true})
-               res.json({user:checkUser._id})
+                console.log('creating token now');
+                const token = await createToken(checkUser._id);
+               await res.cookie('jwt',token,{maxAge:3*24*60*60*1000,httpOnly:true})
+                console.log('token cereated');
+               res.json({user:checkUser._id,jwt:token,checkUser})
             }
             else{
                 res.json({email:'',password:'Wrong Password'})
@@ -65,11 +67,10 @@ module.exports.login_post = async(req,res)=>{
         }
         else{
             console.log('sorry,we found in db')
-            res.json({email:'Email Does not exist',password:''})
+            res.json({email:'Email Does not exist',password:'No password Exist'})
         }
     
     
-    res.json('done')
 }
 
 
@@ -105,6 +106,7 @@ const transporter = nodemailer.createTransport({
         pass:secret.user.password
     }
 })
+
 
 
 

@@ -1,21 +1,52 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {Link,useHistory} from 'react-router-dom'
 
 export default function Login() {
+
+  const history = useHistory();
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+
+    const loginbtn = async(e)=>{
+      e.preventDefault()
+      console.log('clicked',email,password)
+      const res = await fetch('http://localhost:3000/login',({
+        method:"post",
+        body:JSON.stringify({email,password}),
+        headers:{
+          'content-type':'application/json'
+        }
+      }))
+      const data = await res.json();
+      console.log(data);
+      if(data.user)
+      {
+        //user is logged in
+        localStorage.setItem("userId",data.user)
+        localStorage.setItem("userName",data.checkUser.username)
+        console.log(data.user);
+        history.push('/')
+      }
+      else{
+        // user not logged in 
+      }
+    }
+
     return (
         <div>
              <div>
             <div>
              <div id="wrapper">
       <div className="container">
-        <div className="phone-app-demo"></div>
+        {/* <div className="phone-app-demo"></div> */}
         <div className="form-data">
           <form action="">
             <div className="logo">
               <h1>Instagram.</h1>
             </div>
-            <input type="text" placeholder="Phone number, username, or email" />
-            <input type="text" placeholder="Password" />
-            <button className="form-btn" type="submit">Log in</button>
+            <input type="text" placeholder="email" onChange={e=>setEmail(e.target.value)}/>
+            <input type="text" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
+            <button className="form-btn" type="submit" onClick={loginbtn}>Log in</button>
             <span className="has-separator">Or</span>
             <a href="#" className="facebook-login">
               <i className="fab fa-facebook"></i> Log in with Google
@@ -23,7 +54,7 @@ export default function Login() {
             <a className="password-reset" href="#">Forgot password?</a>
           </form>
           <div className="sign-up">
-            Don't an account? <a href="#">Sign up</a>
+            Don't an account? <Link to="/signup">Sign up</Link>
           </div>
           <div className="get-the-app">
             <span>Get the app</span>
@@ -49,7 +80,7 @@ export default function Login() {
             </ul>
           </nav>
           <div className="copyright-notice">
-            &copy; 2019 Complaints
+            &copy; 2021 Instagram
           </div>
         </div>
       </footer>

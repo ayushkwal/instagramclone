@@ -2,7 +2,7 @@ const express= require('express');
 const donateController = require('../Controllers/donateControllers')
 const router = express.Router();
 const mongoose = require('mongoose');
-const User = require('../models/donateModel');
+const User = require('../models/messageModel');
 const {requireAuth} = require('../middleware/authMiddleware')
 
 

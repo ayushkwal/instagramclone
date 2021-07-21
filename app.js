@@ -4,13 +4,13 @@ const app = express();
 const controller = require('./Controllers/authControllers');
 const mongoose = require('mongoose');
 const authRoutes = require('./Router/authRoutes');
-const donateRoutes = require('./Router/authDonate')
 const CookieParser = require('cookie-parser');
 const {requireAuth} = require('./middleware/authMiddleware')
 const CookieSession = require('cookie-session')
 const passport = require('passport')
 //Passport
 const authGoogle = require('./Router/authGoogle')
+const postRoutes = require('./Router/postRoutes')
 const cors = require('cors')
 
 //Setting View Engine as EJS
@@ -39,25 +39,13 @@ mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true, useCre
 
 
 
-
-
 //All requests
 app.get('/',(req,res)=>res.send('this is homepage'))
 app.get('/index',(req,res)=>res.render('index'))
-app.get('/donor',requireAuth,(req,res)=>res.render('donor'))
-app.get('/acceptor',requireAuth,(req,res)=>res.render('acceptor'))
-// app.post('/donateregister',(req,res)=>{
-//   console.log('gggg')
-//   res.send('got it')
-// })
-//For Authenticating Requests
+
 app.use(authRoutes)
-app.use(donateRoutes)
+app.use(postRoutes);
 app.use('/auth',authGoogle);
-// app.use('/profile',profileGoogle);
-
-
-
 
 
 
@@ -67,4 +55,3 @@ const port = 3000;
     app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
   })
-

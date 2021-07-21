@@ -23,6 +23,23 @@ const userSchema = new mongoose.Schema({
         required:true,
         minLength:[6,'Please Enter minimum 6 characters']
     },
+    followers:{
+        type:Number,
+        default:0
+    },
+    following:{
+        type:Number,
+        default:0
+    },
+    followUsers:[{
+        type:String,
+        unique:true
+    }],
+    followingUsers:[{
+        type:String,
+        unique:true
+    }],
+
     resetToken:String,
     expiresIn:Date
 
