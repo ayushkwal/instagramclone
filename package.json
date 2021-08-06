@@ -4,7 +4,8 @@
   "description": "instagram clone",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node app.js",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
+    "socket.io": "^4.1.3",
     "validator": "^13.6.0"
   }
 }

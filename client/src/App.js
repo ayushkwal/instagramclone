@@ -8,6 +8,7 @@ import Profile from './Components/Profile'
 import Signup from './Components/Signup'
 import CreatePost from './Components/CreatePost'
 import EditProfile from './Components/EditProfile'
+import Direct from './Components/Chat'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
    <Route path="/profile"><Profile /></Route>
    <Route path="/createpost"><CreatePost /></Route>
    <Route path="/editprofile"><EditProfile /></Route>
+   <Route path="/direct"><Direct /></Route>
    </BrowserRouter>
    </div>
   );

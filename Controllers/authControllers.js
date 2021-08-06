@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
 const sendGridTransport = require('nodemailer-sendgrid-transport')
-const secret = require('../secret')
+const secret = require('../config/secret')
 
 
 

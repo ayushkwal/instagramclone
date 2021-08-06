@@ -31,6 +31,8 @@ export default function Profile(req, res) {
         console.log(returnData);
         setPostdata(returnData.postGet)
         setData(returnData.profileGet)
+        setToShowInModal(returnData.profileGet.followingUsers)
+        setToShowInModal(returnData.profileGet.followUsers)
 
         console.log(postdata, 'is postdata',data,'is always data');
     }, [])
@@ -85,7 +87,7 @@ export default function Profile(req, res) {
                     <img src="default.png" alt="" ></img>
                 </div>
                 <div className="detail">
-                    <h2>@{data.username}</h2>
+                    <h2>@{data?.username}</h2>
                     <div className="followdetails">
                         <h4>Posts: {postdata.length}  </h4>
                         <h4 style={{cursor:'pointer'}} onClick={() => {setToShowInModal(data.followUsers); setFollowModal(true) }}>Followers: {data.followUsers ? data.followUsers.length : 0}  </h4>
@@ -95,7 +97,9 @@ export default function Profile(req, res) {
                         This is my Instagram Account
                     </div>
                     <div className="followdiv">
-                        <button id="followbtn" onClick={() => { followNow() }}>Follow</button>
+                        
+                        <button  id={toShowInModal.includes(userName)?"followedbtn":"followbtn"} onClick={() => { followNow() }}>Follow</button>
+                        
                     </div>
                 </div>
             </div>
