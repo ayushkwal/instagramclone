@@ -13,8 +13,9 @@ const passport = require('passport')
 const authGoogle = require('./Router/authGoogle')
 const postRoutes = require('./Router/postRoutes')
 const cors = require('cors')
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
+var server = require("http").createServer(app);
+// const server = http.createServer(app);
+var io = require("socket.io")(server);
 
 
 
@@ -118,6 +119,6 @@ if(process.env.NODE_ENV==="production"){
 
 //Server Listening
 const port = process.env.PORT||3000;
-    app.listen(port,  () => {
+    server.listen(port,  () => {
     console.log(`Server running at http://:${port}/`);
   })
