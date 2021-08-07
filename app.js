@@ -47,8 +47,8 @@ mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true, useCre
 
 
 //All requests
-app.get('/',(req,res)=>res.send('this is homepage'))
-app.get('/index',(req,res)=>res.render('index'))
+// app.get('/',(req,res)=>res.send('this is homepage'))
+// app.get('/index',(req,res)=>res.render('index'))
 
 
 app.use(authRoutes)
