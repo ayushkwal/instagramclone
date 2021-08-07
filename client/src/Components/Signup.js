@@ -13,7 +13,7 @@ export default function Signup() {
   const submitHandler = async (e)=>{
     e.preventDefault();
     console.log('get it')
-    const res = await fetch('http://localhost:3000/signup',{
+    const res = await fetch('/signup',{
       method:'post',
       headers:{
         'Content-type':'application/json'

@@ -10,7 +10,7 @@ export default function Login() {
     const loginbtn = async(e)=>{
       e.preventDefault()
       console.log('clicked',email,password)
-      const res = await fetch('http://localhost:3000/login',({
+      const res = await fetch('/login',({
         method:"post",
         body:JSON.stringify({email,password}),
         headers:{

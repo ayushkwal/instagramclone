@@ -19,7 +19,7 @@ export default function EditProfile(req, res) {
 
   //first getting all chats
   useEffect(async () => {
-    const getmsg = await fetch('http://localhost:3000/getchat', {
+    const getmsg = await fetch('/getchat', {
       method: 'post',
       headers: {
         'Content-type': 'application/json'
@@ -73,7 +73,7 @@ export default function EditProfile(req, res) {
 
       //now saving to db that message also
       console.log('now saving to db');
-      const msgSave = await fetch('http://localhost:3000/savechat', {
+      const msgSave = await fetch('/savechat', {
         method: 'post',
         headers: {
           'Content-type': 'application/json'

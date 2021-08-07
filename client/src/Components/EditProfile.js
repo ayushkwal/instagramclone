@@ -150,7 +150,7 @@ export default function EditProfile(req, res) {
         }
         if(submit==true)
         {
-        const res = await fetch('http://localhost:3000/editprofile', ({
+        const res = await fetch('/editprofile', ({
             method: 'post',
             headers: {
                 'content-type': 'application/json'

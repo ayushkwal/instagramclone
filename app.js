@@ -13,7 +13,7 @@ const passport = require('passport')
 const authGoogle = require('./Router/authGoogle')
 const postRoutes = require('./Router/postRoutes')
 const cors = require('cors')
-const io = require('socket.io')(process.env.PORT||8000, {
+const io = require('socket.io')(8000, {
   cors: {
     origin: "http://localhost:3001",
     methods: ["GET", "POST"]

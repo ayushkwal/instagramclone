@@ -21,7 +21,7 @@ export default function Home() {
     }
 
     useEffect(async () => {
-        const res = await fetch('http://localhost:3000/getPost', ({
+        const res = await fetch('/getPost', ({
             method: "post",
             body: JSON.stringify({ userId }),
             headers: {
@@ -42,7 +42,7 @@ export default function Home() {
         const val = comment
         console.log('id of post  is', id, 'and value is ', val);
         const userData = localStorage.getItem("userName");
-        await fetch('http://localhost:3000/postComment', ({
+        await fetch('/postComment', ({
             method: 'post',
             body: JSON.stringify({ PostId: id, comment: val, sendBy: userData }),
             headers: {
@@ -57,7 +57,7 @@ export default function Home() {
         document.getElementById('likeheart').src = "https://img.icons8.com/ios-glyphs/30/fa314a/like--v1.png"
         console.log(id);
         const userName = localStorage.getItem("userName");
-        fetch('http://localhost:3000/likepost', ({
+        fetch('/likepost', ({
             method: 'post',
             body: JSON.stringify({ userName, id }),
             headers: {

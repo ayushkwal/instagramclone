@@ -20,7 +20,7 @@ export default function Profile(req, res) {
     const [toShowInModal,setToShowInModal] = useState([])                                                  //last used here
 
     useEffect(async () => {
-        const res = await fetch('http://localhost:3000/profileView', ({
+        const res = await fetch('/profileView', ({
             method: "post",
             body: JSON.stringify(params),
             headers: {
@@ -40,7 +40,7 @@ export default function Profile(req, res) {
 
     const followNow = async () => {
         console.log('clicked');
-        const followhim = await fetch('http://localhost:3000/followUser', ({
+        const followhim = await fetch('/followUser', ({
             method: "post",
             body: JSON.stringify({ followBy: userName, followTo: params }),
             headers: {

@@ -12,7 +12,7 @@ export default function Navbar() {
   useEffect(async()=>{
     if(search.length!=0)
     {
-      const res =await fetch('http://localhost:3000/userSearch',({
+      const res =await fetch('/userSearch',({
         method:'post',
         body:JSON.stringify({search}),
         headers:{

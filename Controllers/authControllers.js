@@ -135,7 +135,7 @@ module.exports.forgot_post = (req,res)=>{
                         to:userFind.email,
                         from:"ayush.kwal@gmail.com",
                         subject:"password reset",
-                        html:`<p>Password Reset Link</p><a href="http://localhost:3000/reset/${token}">Reset</a>`
+                        html:`<p>Password Reset Link</p><a href="/reset/${token}">Reset</a>`
                     },function(err,data){
                         if(data)
                         {

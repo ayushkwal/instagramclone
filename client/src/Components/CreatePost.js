@@ -26,7 +26,7 @@ export default function CreatePost() {
         console.log(name);
 
         e.preventDefault()
-        const res =await fetch('http://localhost:3000/createpost',({
+        const res =await fetch('/createpost',({
             method:"post",
             body:JSON.stringify({title:title,user:userid,description:description,userName:userData}),
             headers:{
