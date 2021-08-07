@@ -3,7 +3,10 @@ import { io } from "socket.io-client";
 
 import { format, render, cancel, register } from 'timeago.js';
 export default function EditProfile(req, res) {
-  const socket = io("http://localhost:8000");
+  // const socket = io("http://localhost:8000");
+  // const socket = io("https://instaagramclone.herokuapp.com/");
+  const socket = io.connect(window.location.hostname);
+
 
   const [msg, setMsg] = useState('')
   const [send, setSend] = useState(false);
@@ -105,14 +108,7 @@ export default function EditProfile(req, res) {
             <li id="directli" onClick={() => setSendto('mario')}>@mario</li>
             <li id="directli" onClick={() => setSendto('toad')}>@toad</li>
             <li id="directli">@menmychoice</li>
-            <li id="directli">@menmychoice</li>
-            <li id="directli">@menmychoice</li>
-            <li id="directli">@menmychoice</li>
-            <li id="directli">@menmychoice</li>
-            <li id="directli">@menmychoice</li>
             <li id="directli">@myfame</li>
-            <li id="directli">@meindia</li>
-            <li id="directli">@roy</li>
           </ul>
         </div>
         <div id="chatbox">

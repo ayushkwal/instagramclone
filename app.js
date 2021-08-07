@@ -13,12 +13,39 @@ const passport = require('passport')
 const authGoogle = require('./Router/authGoogle')
 const postRoutes = require('./Router/postRoutes')
 const cors = require('cors')
-const io = require('socket.io')(8000, {
-  cors: {
-    origin: "http://localhost:3001",
-    methods: ["GET", "POST"]
-  }
-})
+
+
+
+
+
+//uncomment for development
+// const io = require('socket.io')(8000, {
+//   cors: {
+//     // origin: "http://localhost:3001",
+//     origin: "https://instaagramclone.herokuapp.com/direct",
+//     methods: ["GET", "POST"]
+//   }
+// })
+
+const io = require('socket.io').listen(app);
+
+
+
+// Heroku won't actually allow us to use WebSockets
+// so we have to setup polling instead.
+// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+
+//comment for development
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
+
+
+
+
+
 
 //Setting View Engine as EJS
 app.set('view engine','ejs');
