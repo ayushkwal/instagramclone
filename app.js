@@ -13,6 +13,8 @@ const passport = require('passport')
 const authGoogle = require('./Router/authGoogle')
 const postRoutes = require('./Router/postRoutes')
 const cors = require('cors')
+var http = require("http").Server(app);
+var io = require("socket.io")(http);
 
 
 
@@ -27,7 +29,7 @@ const cors = require('cors')
 //   }
 // })
 
-const io = require('socket.io').listen(app);
+// const io = require('socket.io').listen(app);
 
 
 
@@ -36,10 +38,10 @@ const io = require('socket.io').listen(app);
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
 
 //comment for development
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
+// io.configure(function () { 
+//   io.set("transports", ["xhr-polling"]); 
+//   io.set("polling duration", 10); 
+// });
 
 
 

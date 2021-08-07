@@ -5,7 +5,8 @@ import { format, render, cancel, register } from 'timeago.js';
 export default function EditProfile(req, res) {
   // const socket = io("http://localhost:8000");
   // const socket = io("https://instaagramclone.herokuapp.com/");
-  const socket = io.connect(window.location.hostname);
+  // const socket = io.connect(window.location.hostname);
+  const socket = io()
 
 
   const [msg, setMsg] = useState('')
