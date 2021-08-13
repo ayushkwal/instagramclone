@@ -14,40 +14,21 @@ const authGoogle = require('./Router/authGoogle')
 const postRoutes = require('./Router/postRoutes')
 const cors = require('cors')
 var server = require("http").createServer(app);
-// const server = http.createServer(app);
-var io = require("socket.io")(server);
 
 
 
+//Socket.io Connection-------------------->
+    //for development
+  // const io = require('socket.io')(8000, {
+  //   cors: {
+  //     origin: "http://localhost:3001",
+  //     methods: ["GET", "POST"]
+  //   }
+  // })
 
-
-//uncomment for development
-// const io = require('socket.io')(8000, {
-//   cors: {
-//     // origin: "http://localhost:3001",
-//     origin: "https://instaagramclone.herokuapp.com/direct",
-//     methods: ["GET", "POST"]
-//   }
-// })
-
-// const io = require('socket.io').listen(app);
-
-
-
-// Heroku won't actually allow us to use WebSockets
-// so we have to setup polling instead.
-// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
-
-//comment for development
-// io.configure(function () { 
-//   io.set("transports", ["xhr-polling"]); 
-//   io.set("polling duration", 10); 
-// });
-
-
-
-
-
+  //for production
+  var io = require("socket.io")(server);
+  // --------------------------------------->
 
 
 //Setting View Engine as EJS
@@ -72,7 +53,7 @@ app.use(passport.session())
 const dbURI = Secret.mongo.uri
 mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
 .then(()=>console.log('connected to db'))
-.catch(err=>console.log(err))
+.catch(err=>console.log('Check your Internet Connection for DB Connection'))
 
 
 
@@ -122,3 +103,7 @@ const port = process.env.PORT||3000;
     server.listen(port,  () => {
     console.log(`Server running at http://:${port}/`);
   })
+
+
+  // use in react package.json while development
+  // "proxy": "http://localhost:3000/", 

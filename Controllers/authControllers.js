@@ -29,20 +29,25 @@ const handleErrors = (err)=>{
 
 //CreatIng a Token
 const createToken =(id)=>{
-    return jwt.sign({id},'secret.secret.secretKey',{expiresIn:3*24*60*60})
+    return jwt.sign({id},'ayush secret key',{expiresIn:3*24*60*60})
 }
 
 
 
 module.exports.login_get = (req,res)=>{
-    res.render('login');
+    
+    
 }
 
 
 module.exports.signup_get = (req,res)=>{
-    res.render('signup');
+    
+    
 }
-
+module.exports.checkuser_get = async(req,res)=>{
+    res.send(req.user)
+    
+}
 
 module.exports.login_post = async(req,res)=>{
     const {email,password}=req.body;

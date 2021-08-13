@@ -37,6 +37,14 @@ const messageSchema = new mongoose.Schema({
     id:{
         type:ObjectId,
         ref:'user'
+    },
+    image:{
+        type:String,
+        
+    },
+    profile:{
+        type:String,
+        default:"https://img.icons8.com/ios/50/000000/user--v1.png"
     }
 
 })

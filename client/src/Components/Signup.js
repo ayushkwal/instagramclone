@@ -71,7 +71,7 @@ export default function Signup() {
             </a>
           </form>
           <div className="sign-up">
-            Don't an account? <a href="#">Sign up</a>
+            Already have an account? <a href="/login">Log In</a>
           </div>
           <div className="get-the-app">
             <span>Get the app</span>

@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import {Link,useHistory} from 'react-router-dom'
+import { UserContext } from '../App';
 
 export default function Login() {
-
+  const {state,dispatch} = useContext(UserContext)
   const history = useHistory();
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
@@ -24,6 +25,7 @@ export default function Login() {
         //user is logged in
         localStorage.setItem("userId",data.user)
         localStorage.setItem("userName",data.checkUser.username)
+        dispatch({type:"USER",payload:{userId:data.user,userName:data.checkUser.username}})
         console.log(data.user);
         history.push('/')
       }
