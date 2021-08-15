@@ -7,10 +7,10 @@ import { format, render, cancel, register } from 'timeago.js';
 export default function EditProfile(req, res) {
 
   // for development 
-  const socket = io("http://localhost:8000");
+  // const socket = io("http://localhost:8000");
 
   //for production  
-  // const socket = io("/")
+  const socket = io("/")
 
   const history = useHistory();
   const [msg, setMsg] = useState('');
