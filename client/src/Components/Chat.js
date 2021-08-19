@@ -145,8 +145,7 @@ export default function EditProfile(req, res) {
 
 
 
-  const sendmessage = (event) => {
-    event.preventDefault();
+  const sendmessage = () => {
     console.log('sendmessage called-->');
     if (msg != '') {
       setNewmessage(messages => [...messages, { msg, status: 'sent-message' }]);
@@ -220,7 +219,7 @@ export default function EditProfile(req, res) {
                 <div id="post-message">
                   <div id="sendcontainer">
                     <input id="chatinput" onChange={(e) => setMsg(e.target.value)} type="text"></input>
-                    <button id="chatbtn" onClick={sendmessage}>Send</button>
+                    <button id="chatbtn" onClick={()=>sendmessage()}>Send</button>
                   </div>
                 </div>
               </div>

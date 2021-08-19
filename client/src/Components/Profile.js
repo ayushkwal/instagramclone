@@ -104,14 +104,14 @@ export default function Profile(req, res) {
 
             <div className="pro1">
                 <div className="dp">
-                    <img src={data.profile} alt="" ></img>
+                    <img src={data.profile}  ></img>
                 </div>
                 <div className="detail">
                     <h2>@{data?.username}</h2>
                     <h4 style={{textAlign:'center',fontSize:20}}>{data.fullName}</h4>
                     <div className="followdetails" style={{ flexDirection: 'column' }}>
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
-                            <h4>Posts: {postdata.length}  </h4>
+                            <h4>Posts: {postdata?.length}  </h4>
                             <h4 style={{ cursor: 'pointer' }} onClick={() => { setToShowInModal(data.followUsers); setFollowModal(true) }}>Followers: {data.followUsers ? data.followUsers.length : 0}  </h4>
                             <h4 style={{ cursor: 'pointer' }} onClick={() => { setToShowInModal(data.followingUsers); setFollowModal(true); }}>Following: {data.followingUsers ? data.followingUsers.length : 0}  </h4>
                         </div>

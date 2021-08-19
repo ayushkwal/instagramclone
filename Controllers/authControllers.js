@@ -18,7 +18,7 @@ const handleErrors = (err)=>{
         errors.email = 'that email is already registered';
         return errors;
     }
-    if(err.message.includes('plasmaUser validation failed'))
+    if(err.message.includes('instadatanew validation failed'))
     {
         Object.values(err.errors).forEach(({ properties }) => {
             errors[properties.path] = properties.message;
@@ -92,8 +92,8 @@ module.exports.signup_post = async(req,res)=>{
     catch(err){
         console.log(err);
         const errors = handleErrors(err);
-        console.log(errors)
-        res.json({errors:errors})
+        console.log(errors,errors.email,'is data')
+        res.json({erroremail:errors.email,errorpassword:errors.password})
 
 
     }
