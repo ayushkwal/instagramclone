@@ -7,6 +7,7 @@ export default function Login() {
   const history = useHistory();
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [result,setResult]  = useState('')
 
     const loginbtn = async(e)=>{
       e.preventDefault()
@@ -47,12 +48,12 @@ export default function Login() {
               <h1>Instagram.</h1>
             </div>
             <input type="text" placeholder="email" onChange={e=>setEmail(e.target.value)}/>
-            <input type="text" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
+            <input type="password" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
             <button className="form-btn" type="submit" onClick={loginbtn}>Log in</button>
             <span className="has-separator">Or</span>
             <a href="#" className="facebook-login">
               <i className="fab fa-facebook"></i> Log in with Google
-            </a>
+            </a> 
             <a className="password-reset" href="#">Forgot password?</a>
           </form>
           <div className="sign-up">

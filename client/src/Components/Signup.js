@@ -66,7 +66,7 @@ export default function Signup() {
                   onChange={(e) => setEmail(e.target.value)} />
 
                 {/* Input Password  */}
-                <input type="text"
+                <input type="password"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

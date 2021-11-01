@@ -53,7 +53,7 @@ app.use(passport.session())
 const dbURI = Secret.mongo.uri
 mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
 .then(()=>console.log('connected to db'))
-.catch(err=>console.log('Check your Internet Connection for DB Connection'))
+.catch(err=>console.log('Check your Internet Connection for DB Connection',err))
 
 
 
